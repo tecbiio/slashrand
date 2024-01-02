@@ -1,15 +1,25 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <header>
+    <h1>slashrand application</h1>
+  </header>
+  <label>Current rand : {{ randNumber }}</label>
+  <button @click="randomize">Randomize</button>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  data() {
+    return {
+      randNumber: null,
+      max: 100
+    }
+  },
+  methods: {
+    randomize() {
+      this.randNumber = Math.floor(Math.random() * this.max) + 1;
+    }
   }
 }
 </script>
@@ -21,6 +31,11 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+
+header {
+  top: 0;
+  width: 100%;
+  background-color: aquamarine;
 }
 </style>
